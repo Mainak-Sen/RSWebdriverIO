@@ -1,0 +1,33 @@
+{
+  "name": "webdriverio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "rimraf allure-results && rimraf allure-report",
+    "CreditCardTests": "npm run-script pretest && npx wdio run wdio.conf.js --suite creditCard",
+    "ATMCardTests": "npm run-script pretest && npx wdio run wdio.conf.js --spec test/specs/firstTest.js",
+    "QARegression": "npm run-script pretest && npx wdio run ./wdio.conf.js",
+    "UATRegression": "npx wdio run ./wdio.uat.conf.js",
+    "debitCardTests": "npx wdio run ./wdio.conf.js --suite debitCard",
+    "GenerateReport": "allure generate allure-results --clean && allure open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^7.6.1",
+    "@wdio/cli": "^7.6.1",
+    "@wdio/firefox-profile-service": "^7.6.0",
+    "@wdio/local-runner": "^7.7.4",
+    "@wdio/mocha-framework": "^7.7.4",
+    "@wdio/spec-reporter": "^7.7.3",
+    "@wdio/sync": "^7.6.1",
+    "chai": "^4.3.4",
+    "chromedriver": "^90.0.1",
+    "rimraf": "^3.0.2",
+    "wdio-chromedriver-service": "^7.1.1"
+  },
+  "dependencies": {}
+}
